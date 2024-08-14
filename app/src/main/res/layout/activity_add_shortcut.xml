@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddShortcutActivity"
+    android:padding="12dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a new shortcut"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/activity_add_shortcut_back"
+        android:paddingBottom="6dp"
+        />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_back"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/baseline_arrow_back"
+        app:tint="@color/colorPrimary"
+        android:layout_margin="8dp" />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_nfc_image"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/baseline_sensors"
+        app:tint="@color/colorPrimary"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@id/activity_add_nfc_message"
+        />
+
+    <TextView
+        android:id="@+id/activity_add_nfc_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_tag_message"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp"
+        />
+
+    <EditText
+        android:layout_below="@id/activity_add_shortcut_back"
+        android:id="@+id/activity_add_shortcut_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:hint="My Shortcut"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/activity_add_shortcut_tag_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="#345455"
+        android:textColor="@color/colorSecondary"
+        android:layout_alignBaseline="@id/activity_add_shortcut_name"
+        android:layout_toRightOf="@id/activity_add_shortcut_name"/>
+
+    <TextView
+        android:id="@+id/activity_add_shortcut_type_website_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Website"
+        android:layout_below="@id/activity_add_shortcut_name"
+        android:layout_toRightOf="@id/activity_add_shortcut_type_website_image"
+        android:layout_alignBaseline="@id/activity_add_shortcut_type_website_image"
+        android:alpha="0.5"
+        />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_type_website_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/baseline_blur"
+        android:layout_below="@id/activity_add_shortcut_name"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="15dp"
+        app:tint="@color/colorPrimary"
+        android:alpha="0.5"
+        />
+
+    <TextView
+        android:id="@+id/activity_add_shortcut_type_app_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/colorPrimary"
+        android:text="App"
+        android:layout_below="@id/activity_add_shortcut_name"
+        android:layout_toRightOf="@id/activity_add_shortcut_type_app_image"
+        android:layout_alignBaseline="@id/activity_add_shortcut_type_app_image"
+        />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_type_app_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/baseline_android"
+        android:layout_below="@id/activity_add_shortcut_name"
+        android:layout_toRightOf="@id/activity_add_shortcut_type_website_text"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="5dp"
+        app:tint="@color/colorSecondary"
+        />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_url_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/baseline_code"
+        android:layout_below="@id/activity_add_shortcut_type_website_image"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="25dp"
+        app:tint="@color/colorPrimary"
+        />
+
+    <EditText
+        android:padding="0dp"
+        android:id="@+id/activity_add_shortcut_url_text"
+        android:textColor="@color/colorPrimary"
+        android:hint="http://agreatwebsiteurl.net"
+        android:textSize="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_toRightOf="@id/activity_add_shortcut_url_image"
+        android:layout="@id/activity_add_shortcut_url_image"
+        android:layout_marginTop="-7dp"
+        android:layout_below="@id/activity_add_shortcut_type_website_image"
+        />
+
+    <ImageView
+        android:id="@+id/activity_add_shortcut_add"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/baseline_add"
+        app:tint="@color/colorPrimary"
+        android:layout_centerInParent="true"/>
+
+
+
+
+</RelativeLayout>

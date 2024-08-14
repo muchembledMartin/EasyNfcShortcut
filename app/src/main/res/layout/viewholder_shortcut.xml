@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/viewholder_shortcut_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textStyle="bold"
+        android:text="My Shortcut"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/viewholder_shortcut_tag_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:text="#345455"
+        android:textColor="@color/colorSecondary"
+        android:layout_toRightOf="@id/viewholder_shortcut_name"/>
+
+    <TextView
+        android:id="@+id/viewholder_shortcut_type_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@color/colorPrimary"
+        android:text="Website"
+        android:layout_below="@id/viewholder_shortcut_name"
+        android:layout_toRightOf="@id/viewholder_shortcut_type_image"
+        android:layout_alignBaseline="@id/viewholder_shortcut_type_image"/>
+
+    <ImageView
+        android:id="@+id/viewholder_shortcut_type_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/baseline_blur"
+        android:layout_below="@id/viewholder_shortcut_name"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
+        app:tint="@color/colorPrimary"
+        />
+
+    <ImageView
+        android:id="@+id/viewholder_shortcut_url_image"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:src="@drawable/baseline_code"
+        android:layout_below="@id/viewholder_shortcut_type_image"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="15dp"
+        app:tint="@color/colorPrimary"
+        />
+
+    <TextView
+        android:id="@+id/viewholder_shortcut_url_text"
+        android:textColor="@color/colorPrimary"
+        android:text="http://agreatwebsiteurl.net"
+        android:textSize="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:layout_below="@id/viewholder_shortcut_type_image"
+        android:layout_toRightOf="@id/viewholder_shortcut_url_image"
+        />
+
+    <ImageView
+        android:id="@+id/viewholder_shortcut_add_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/baseline_add"
+        app:tint="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        />
+
+</RelativeLayout>

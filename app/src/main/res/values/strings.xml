@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EasyNFCShortcut</string>
+    <string name="scan_tag_message">Scan a tag to add a shortcut.</string>
+    <string name="nfc_disable_message">Enable NFC to add a shortcut.</string>
+</resources>
