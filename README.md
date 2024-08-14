@@ -1,3 +1,3 @@
 # EasyNfcShortcut
-### A new repository for an old project
+### A new repository for an old project
 
