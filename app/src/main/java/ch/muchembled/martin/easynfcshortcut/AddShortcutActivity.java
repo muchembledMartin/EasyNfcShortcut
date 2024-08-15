@@ -33,6 +33,7 @@ public class AddShortcutActivity extends AppCompatActivity {
 
     public static final String IS_TAG_KNOWN_KEY = "isTagKnown";
     public static final String TAG_KEY = "TagKey";
+    public static final int ADD_SHORTCUT_ACTIVITY_RESULT = 51;
 
     // Shortcut state
     private String tagId;
@@ -132,6 +133,7 @@ public class AddShortcutActivity extends AppCompatActivity {
         this.shortcutTypeAppImage.setOnClickListener(onAppClicked);
         this.shortcutNameEditText.addTextChangedListener(textWatcher);
         this.shortcutUrlEditText.addTextChangedListener(textWatcher);
+        this.addShortcutButton.setOnClickListener(onAddShortcutClicked);
     }
 
     private View.OnClickListener onReturnClicked = (View v) -> {

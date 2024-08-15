@@ -47,6 +47,10 @@ public class ShortcutAdapter extends RecyclerView.Adapter<ShortcutAdapter.Shortc
         }
     }
 
+    public void setShortcuts(List<Shortcut> shortcuts) {
+        this.shortcuts = shortcuts;
+    }
+
     @Override
     public int getItemCount() {
         return shortcuts.size() + 1;

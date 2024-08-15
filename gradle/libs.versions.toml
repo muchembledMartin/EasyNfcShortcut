@@ -7,14 +7,14 @@ appcompat = "1.6.1"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
-androidxRoomGradlePlugin = "2.7.0-alpha05"
-roomCommon = "2.7.0-alpha05"
-roomCompiler = "2.7.0-alpha06"
-roomGuava = "2.7.0-alpha06"
-roomRuntime = "2.7.0-alpha06"
-roomCompilerVersion = "2.5.0"
-roomGuavaVersion = "2.5.0"
-roomRuntimeVersion = "2.5.0"
+roomGuava = "2.6.1"
+roomRuntime = "2.6.1"
+roomCompiler = "2.6.1"
+roomGuavaVersion = "2.6.1"
+roomRuntimeVersion = "2.6.1"
+roomCompilerVersion = "2.6.1"
+roomCommon = "2.6.1"
+androidxRoomGradlePlugin = "2.6.1"
 
 [libraries]
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -32,6 +32,11 @@ androidx-room-runtime = { group = "androidx.room", name = "room-runtime", versio
 room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompilerVersion" }
 room-guava = { group = "androidx.room", name = "room-guava", version.ref = "roomGuavaVersion" }
 room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntimeVersion" }
+androidx-room-room-guava = { group = "androidx.room", name = "room-guava", version.ref = "roomGuava" }
+androidx-room-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomRuntime" }
+androidx-room-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomCompiler" }
+room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
+androidx-androidx-room-gradle-plugin = { group = "androidx.room", name = "androidx.room.gradle.plugin", version.ref = "androidxRoomGradlePlugin" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

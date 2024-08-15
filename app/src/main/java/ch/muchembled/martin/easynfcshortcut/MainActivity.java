@@ -6,6 +6,8 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import ch.muchembled.martin.easynfcshortcut.database.ShortcutDao;
 import ch.muchembled.martin.easynfcshortcut.database.ShortcutDatabase;
 import ch.muchembled.martin.easynfcshortcut.model.Shortcut;
 
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<Shortcut> shortcuts;
+
+    private ShortcutDatabase db;
+    private ShortcutDao dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("main", "Creating views");
 
         getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-        shortcuts = ShortcutDatabase.getInstance(this).shortcutDao().getAllShortcuts();
+
+        db = ShortcutDatabase.getInstance(this);
+        dao = db.shortcutDao();
+
+        shortcuts = dao.getAllShortcuts();
 
         initViews();
     }
@@ -45,9 +55,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         onIntent(getIntent());
-        shortcuts = ShortcutDatabase.getInstance(this).shortcutDao().getAllShortcuts();
-
-
     }
 
     private void onIntent(Intent intent){
@@ -78,8 +85,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent addActivityIntent = new Intent(this, AddShortcutActivity.class);
                 addActivityIntent.putExtra(AddShortcutActivity.IS_TAG_KNOWN_KEY, true);
                 addActivityIntent.putExtra(AddShortcutActivity.TAG_KEY, tagId);
-                startActivity(addActivityIntent);
+                startActivityForResult(addActivityIntent, AddShortcutActivity.ADD_SHORTCUT_ACTIVITY_RESULT);
             }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch(requestCode){
+            case AddShortcutActivity.ADD_SHORTCUT_ACTIVITY_RESULT:
+                shortcuts = dao.getAllShortcuts();
+                ((ShortcutAdapter) recyclerView.getAdapter()).setShortcuts(shortcuts);
+                recyclerView.getAdapter().notifyDataSetChanged();
+                break;
+            default:
+                break;
         }
     }
 
@@ -92,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 (View v) -> {
                     Intent intent = new Intent(this, AddShortcutActivity.class);
                     intent.putExtra(AddShortcutActivity.IS_TAG_KNOWN_KEY, false);
-                    startActivity(intent);
+                    startActivityForResult(intent, AddShortcutActivity.ADD_SHORTCUT_ACTIVITY_RESULT);
                 },
                 (View v, Shortcut shortcut) -> {
                     // On shortcut clicked

@@ -16,7 +16,7 @@ public abstract class ShortcutDatabase extends RoomDatabase {
 
     public synchronized static ShortcutDatabase getInstance(Context context){
         if(myDatabase == null){
-            myDatabase = Room.databaseBuilder(context, ShortcutDatabase.class, DATABASE_NAME).build();
+            myDatabase = Room.databaseBuilder(context, ShortcutDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
         }
 
         return myDatabase;
